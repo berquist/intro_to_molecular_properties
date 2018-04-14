@@ -1,6 +1,15 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{ejb-dissertation}
 
+\RequirePackage[bookmarks,hyperindex=true,pdfencoding=auto,psdextra]{hyperref}
+\hypersetup{%
+  colorlinks=true,%
+  citecolor=black,%
+  linkcolor=caliblue,%
+  anchorcolor=caliblue,%
+  urlcolor=carmine,%
+}
+
 \RequirePackage{algorithm}
 \RequirePackage{algpseudocode}
 \RequirePackage{bm}
@@ -12,7 +21,6 @@
 \RequirePackage{makecell}
 \renewcommand{\cellalign}{cl}
 \RequirePackage[version=4]{mhchem}
-\newcommand{\arlidimer}{\ce{Ar\bond{....}Li+}}
 \RequirePackage{microtype}
 \RequirePackage{multirow}
 \RequirePackage{pdflscape}
@@ -35,29 +43,8 @@
     range-units = single,%
     retain-explicit-plus = true,%
 ]{siunitx}
-\DeclareSIUnit\Molar{M}
 \DeclareSIUnit\au{a.u.}
-\DeclareSIUnit\cal{cal}
-\DeclareSIUnit\debye{D}
-\DeclareSIUnit\electron{e^{-}}
-\DeclareSIUnit\kcal{\kilo\cal}
-\DeclareSIUnit\micron{\micro\metre}
-\DeclareSIUnit\torr{Torr}
-\DeclareSIUnit\wavenumber{\per\centi\metre}
-\newcommand{\aud}{\si{\bohr\cubed}}
 
-\RequirePackage{listings}
-\lstset{%
-  basicstyle=\ttfamily\footnotesize,%
-  breakatwhitespace=true,%
-  breaklines=false,%
-  frame=none,%
-  numberbychapter=false,%
-  numbers=left,%
-  numberstyle=\tiny,
-}
-
-\newcommand{\cotil}{\ce{CO2}\textendash{}IL}
 \newcommand{\hefe}{Hellmann\textendash{}Feynman}
 \newcommand{\hf}{Hartree\textendash{}Fock}
 \newcommand{\ks}{Kohn\textendash{}Sham}
@@ -65,36 +52,7 @@
 \newcommand{\schrod}{Schr{\"{o}}dinger}
 \newcommand{\szabo}{Szabo \& Ostlund}
 
-\newcommand{\pdalton}{\textsc{Dalton}}
-\newcommand{\libresponse}{\texttt{libresponse}}
-\newcommand{\psif}{\textsc{Psi4}}
-\newcommand{\response}{\textsc{Response}}
-
-\newcommand{\numpy}{\textsc{NumPy}}
-\newcommand{\pfour}{\textsc{Psi4}}
-\newcommand{\pfn}{\textsc{Psi4NumPy}}
-\newcommand{\arrayint}{\texttt{array\_interface}}
-\newcommand{\einsum}{\texttt{einsum}}
-
-\newcommand{\latin}[1]{\textit{#1}}
-\newcommand{\op}[1]{\ensuremath{\hat{#1}}}
-\newcommand{\mat}[1]{\ensuremath{\mathbf{#1}}}
-\newcommand{\Order}[1]{\ensuremath{\mathcal{O}\left(#1\right)}}
-\newcommand{\tr}[1]{\ensuremath{{\mathrm{Tr}}\left\{#1\right\}}}
-\newcommand{\eq}[1]{eq.~(\ref{#1})}
-\newcommand{\citen}[1]{ref.~\parencite{#1}}
-\newcommand{\lr}[2]{\braket{\braket{\op{#1}; \op{#2}}}}
-\newcommand{\lrs}[4]{\braket{\braket{\op{#1}_{#2}; \op{#3}_{#4}}}}
-
-\hyphenation{im-id-a-zol-i-um meth-yl-im-id-a-zol-i-um hexa-fluoro-phos-phate tetra-fluoro-borate tri-fluoro-methyl-sulfonyl tri-fluoro-acetate di-cyan-amide red-shift red-shifts electro-statics wave-function}
-
-\hypersetup{%
-  colorlinks=true,%
-  citecolor=black,%
-  linkcolor=caliblue,%
-  anchorcolor=caliblue,%
-  urlcolor=carmine,%
-}
+\hyphenation{electro-statics wave-function}
 
 \renewcommand{\thefootnote}{\alph{footnote}}
 
