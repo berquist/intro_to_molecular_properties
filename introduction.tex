@@ -2,8 +2,8 @@
 
 \usepackage{etoolbox}
 \usepackage{ejb-bibstuff}
-\addbibresource{./paper_04/paper.bib}
-\addbibresource{./paper_05/tutorial.bib}
+\addbibresource{./paper.bib}
+\addbibresource{./tutorial.bib}
 \addbibresource{./library2.bib}
 \usepackage[bookmarks,hyperindex=true,pdfencoding=auto,psdextra]{hyperref}
 \usepackage{ejb-dissertation}
@@ -26,7 +26,7 @@ The remainder of this introduction will cover the basic language of molecular re
 
 For more background literature on the theoretical development and applications of response theory to molecular properties, see reviews by Gauss\cite{gauss2000}, Neese\cite{NEESE2009526}, Norman\cite{C1CP21951K}, Helgaker\cite{doi:10.1021/cr2002239} and books by \szabo{}\cite{szabo1989modern}, McWeeny\cite{mcweeny1989methods}, Yamaguchi\cite{Yamaguchi1994}, and Barron\cite{barron2004molecular}.
 
-\section{\texorpdfstring{\caps{Terms and Fundamental Definitions}}{Terms and Fundamental Definitions}}
+\section{Terms and Fundamental Definitions}
 \label{sec:terms-and-fundamental-definitions}
 
 Throughout the introduction and the remainder of this work, a number of terms appear and may seem to be used interchangeably. In quantum chemistry literature, the phrase \emph{molecular property} is used to denote any quantity that can be calculated from the wavefunction. By this definition, not all molecular properties are \emph{observables}, as they do not necessarily correspond to experimentally-measurable quantities. Such molecular properties may not also be uniquely defined. One of the most prominent examples of non-observable molecular properties is the calculation of atomic partial charges, with Mulliken\cite{Mulliken1955,szabo1989modern} and L{\"{o}}wdin\cite{Lowdin1950} population analyses being the two most commonly-known partitioning schemes for dividing the electron density into atomic contributions. However, this work associates molecular properties with observables, which may also be synonymous with \emph{physical properties}. The term \emph{chemical property} is avoided as it is more closely associated with reactivity than observable quantities.
@@ -39,7 +39,7 @@ The response equations relevant for this work are the coupled perturbed \hf{} (C
 
 The solution of the CPSCF equations to calculate the parameters that describe the wavefunction's response to the perturbation \(\hat{V}\) determines the \emph{linear response} of the system. Linear response is named as such not due to the linear form of the equations, but because the perturbation is linear in strength. This strength may be constant, static, or time-independent, or it may be oscillating, dynamic, frequency-, or time-dependent. This work is primarily concerned with static response properties, however an introduction to dynamic response is presented. The most common formulation of these equations is single-particle in nature, with both particle-hole and hole-particle terms, giving the \emph{random phase approximation} (RPA)\cite{Scheffler2012,doi:10.1021/cr0505627}. If not the external perturbation but the response equations themselves are expanded using order analysis, the \hf{} equations give the zeroth-order \emph{polarization propagator}, RPA corresponds to the first-order polarization propagator, and the full two-particle terms are part of the second-order polarization propagator (SOPPA)\cite{ODDERSHEDE198433}.
 
-\section[\texorpdfstring{\caps{Macroscopic and Microscopic Response Connections}}{Macroscopic and Microscopic Response Connections}]{\texorpdfstring{\caps{Connection Between Macroscopic and Microscopic Properties}}{Connection Between Macroscopic and Microscopic Properties}}
+\section[Macroscopic and Microscopic Response Connections]{Connection Between Macroscopic and Microscopic Properties}
 \label{sec:connection-between-macroscopic-and-microscopic}
 
 \begin{table}
@@ -109,7 +109,7 @@ There is often a direct connection between the macroscopic observables measurabl
   \end{tabular}
 \end{table}
 
-\section{\texorpdfstring{\caps{Static (time-independent) response properties}}{Static (time-independent) response properties}}
+\section{Static (time-independent) response properties}
 \label{sec:static-properties}
 
 The two primary ways to perform the derivation are
@@ -729,7 +729,7 @@ In the case where \(\hat{V}\) is operator with multiple components, such as the 
 \end{equation} % \fxnote{TODO This expression is still incomplete regarding time-varying perturbations and mixed-operator properties.}
 \eqref{eq:static-polarizability-from-perturbation-theory} is called a \emph{sum-over-states} expansion due to the explicit summation over the set of excited states \(\ket{\psi_{k}^{(0)}}\). Although the derivation assumes that all states are exact and the summation is infinite, the actual states are formed from the basis of excited Slater determinants using the converged SCF wavefunction as the reference state \(\ket{\psi_{i}^{(0)}}\).
 
-\section{\texorpdfstring{\caps{Dynamic (frequency-dependent) response properties}}{Static (time-independent) response properties}}
+\section{Dynamic (frequency-dependent) response properties}
 \label{sec:dynamic-properties}
 
 Up to this point, only static perturbations have been considered, where the strength of an applied field does not oscillate or vary with time. This is perfectly satisfactory for many properties, such as those that are intrinsic to the system or do not depend on field strength. For example, it does not make sense to have a field strength directly associated with a change in nuclear positions; this is not the same thing as having nuclear positions change in the presence of an applied field. Similarly, from Table~\ref{tab:gauss}, rotational and nuclear magnetic moments do not have a strength associated with them. This holds generally for ``internal'' perturbations. However, many non-linear optical processes in particular take advantage of oscillating fields, so frequency- or time-dependent molecular response properties must be calculable.
@@ -858,7 +858,7 @@ which is in general nonzero for all \(\omega\). Physically, it corresponds to th
 %   \lim_{\omega_{1} \to \omega_{n0}} (\omega_{n0} - \omega_{1}) \braket{\braket{\hat{A};\hat{B}^{\omega_{1}}}} = \braket{0|\hat{A}|n} \braket{n|\hat{B}^{\omega_{1}}|0}
 % \end{equation}
 
-% \section{\texorpdfstring{\caps{The coupled-perturbed equations}}{The coupled-perturbed equations}}
+% \section{The coupled-perturbed equations}
 % \label{ssec:coupled-perturbed-equations}
 
 % While the solution of the coupled-perturbed equations has been alluded to in sections~\ref{sec:terms-and-fundamental-definitions}~and~\ref{ssec:analytic-derivative-theory}, little mention has been made of their form. \eqref{eq:yamaguchi-4.20} gives the diagonal elements, but in fact the entire occupied-occupied and virtual-virtual blocks can be fixed using the same condition:
