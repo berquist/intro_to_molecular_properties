@@ -1,21 +1,16 @@
-\documentclass[%
-class = book,%
-crop = false,%
-float = true,%
-multi = true,%
-preview = false,%
-]{standalone}
-\onlyifstandalone{\usepackage{etoolbox}}
-\onlyifstandalone{\usepackage{setspace}}
-\onlyifstandalone{\usepackage{ejb-bibstuff}}
-\onlyifstandalone{\addbibresource{./paper_04/paper.bib}}
-\onlyifstandalone{\addbibresource{./paper_05/tutorial.bib}}
-\onlyifstandalone{\addbibresource{./library2.bib}}
-\onlyifstandalone{\usepackage[bookmarks,hyperindex=true,pdfencoding=auto,psdextra]{hyperref}}
-\onlyifstandalone{\usepackage{ejb-dissertation}}
-\onlyifstandalone{\raggedbottom}
+\documentclass{book}
+
+\usepackage{etoolbox}
+\usepackage{ejb-bibstuff}
+\addbibresource{./paper_04/paper.bib}
+\addbibresource{./paper_05/tutorial.bib}
+\addbibresource{./library2.bib}
+\usepackage[bookmarks,hyperindex=true,pdfencoding=auto,psdextra]{hyperref}
+\usepackage{ejb-dissertation}
+\raggedbottom
 \begin{document}
-\onlyifstandalone{{\hypersetup{linkcolor=black}\tableofcontents{}}}
+{\hypersetup{linkcolor=black}\tableofcontents{}}
+
 \chapter{Introduction and Theoretical Background}
 \label{ch:introduction}
 
@@ -50,36 +45,34 @@ The solution of the CPSCF equations to calculate the parameters that describe th
 \begin{table}
   \centering
   \caption[Connection between energy derivatives and molecular properties]{Connection between specific energy derivatives and their respective molecular properties. \(F\) is an applied electric field, \(B\) is an applied magnetic field, \(X\) is a nuclear coordinate, \(m\) is a nuclear magnetic moment, \(J\) is a total rotational moment, \(I\) is a nuclear spin, and \(S\) is the intrinsic electronic spin. Adapted from Ref.~\parencite{gauss2000}~and~\parencite{jensen2013introduction}.\label{tab:gauss}}
-  \begin{singlespace}
-    \begin{tabulary}{1.00\textwidth}{rL}
-      \toprule
-      \textbf{Energy derivative} & \textbf{Molecular property} \\
-      \midrule
-      \(\frac{dE}{dF_{i}}\)                          & \href{https://chemistry.stackexchange.com/q/31075/194}{\color{black}{dipole moment}}; in a similar manner also multipole moments, electric field gradients, etc. \\
-      \(\frac{dE}{dB_{\alpha}}\)                     & magnetic dipole moment and higher-order magnetic multipoles \\
-      \(\frac{dE}{dX_{i}}\)                          & forces on nuclei; stationary points on potential energy surfaces, equilibrium and transition state structures \\
-      \(\frac{dE}{dm_{K_{j}}}\)                      & spin density; hyperfine interaction constants \\
-      \(\frac{d^{2}E}{dF_{\alpha}dF_{\beta}}\)       & (electric) polarizability \\
-      \(\frac{d^{2}E}{dX_{i}dX_{j}}\)                & harmonic force constants; harmonic vibrational frequencies \\
-      \(\frac{d^{2}E}{dX_{i}dF_{\alpha}}\)           & dipole derivatives; infrared intensities within the harmonic approximation \\
-      \(\frac{d^{2}E}{dB_{\alpha}dB_{\beta}}\)       & magnetizability \\
-      \(\frac{d^{2}E}{dm_{K_{j}}dB_{\alpha}}\)       & nuclear magnetic shielding tensor; relative NMR shifts \\
-      \(\frac{d^{2}E}{dI_{K_{i}}dI_{L_{j}}}\)        & indirect spin-spin coupling constant \\
-      \(\frac{d^{2}E}{dB_{\alpha}dJ_{\beta}}\)       & rotational \textit{g}-tensor; rotational spectra in magnetic field \\
-      \(\frac{d^{2}E}{dI_{K_{i}}dB_{\alpha}}\)       & nuclear spin-rotation tensor; fine structure in rotational spectra \\
-      \(\frac{d^{2}E}{dS_{i}dB_{\alpha}}\)           & electronic \textit{g}-tensor \\
-      \(\frac{d^{3}E}{dX_{i}dF_{\alpha}dF_{\beta}}\) & polarizability derivative; Raman intensities \\
-      \(\frac{d^{3}E}{dF_{\alpha}d^{2}F_{\beta}}\)   & (first) electric hyperpolarizability \\
-      \(\frac{d^{3}E}{dX_{i}dX_{j}dX_{k}}\)          & cubic force constants; vibrational corrections to distances and rotational constants \\
-      \(\frac{d^{4}E}{dF_{\alpha}dF_{\beta}dF_{\gamma}dF_{\delta}}\) & (second) electric hyperpolarizability \\
-      \(\frac{d^{4}E}{dB_{\alpha}dB_{\beta}dB_{\gamma}dB_{\delta}}\) & (second) hypermagnetizability \\
-      \(\frac{d^{4}E}{dX_{i}dX_{j}dX_{k}dX_{l}}\)                    & quartic force constants; anharmonic corrections to vibrational frequencies \\
-      \(\frac{d^{4}E}{dF_{\alpha}dF_{\beta}dF_{\gamma}dX_{i}}\)      & hyper-Raman effects \\
-      \(\frac{d^{4}E}{dF_{\alpha}dF_{\beta}dX_{i}dX_{j}}\)           & Raman intensities for overtone and combination bands \\
-      \(\frac{d^{4}E}{dF_{\alpha}dF_{\beta}dB_{\gamma}dB_{\delta}}\) & Cotton\textendash{}Mutton effect \\
-      \bottomrule
-    \end{tabulary}
-  \end{singlespace}
+  \begin{tabulary}{1.00\textwidth}{rL}
+    \toprule
+    \textbf{Energy derivative} & \textbf{Molecular property} \\
+    \midrule
+    \(\frac{dE}{dF_{i}}\)                          & \href{https://chemistry.stackexchange.com/q/31075/194}{\color{black}{dipole moment}}; in a similar manner also multipole moments, electric field gradients, etc. \\
+    \(\frac{dE}{dB_{\alpha}}\)                     & magnetic dipole moment and higher-order magnetic multipoles \\
+    \(\frac{dE}{dX_{i}}\)                          & forces on nuclei; stationary points on potential energy surfaces, equilibrium and transition state structures \\
+    \(\frac{dE}{dm_{K_{j}}}\)                      & spin density; hyperfine interaction constants \\
+    \(\frac{d^{2}E}{dF_{\alpha}dF_{\beta}}\)       & (electric) polarizability \\
+    \(\frac{d^{2}E}{dX_{i}dX_{j}}\)                & harmonic force constants; harmonic vibrational frequencies \\
+    \(\frac{d^{2}E}{dX_{i}dF_{\alpha}}\)           & dipole derivatives; infrared intensities within the harmonic approximation \\
+    \(\frac{d^{2}E}{dB_{\alpha}dB_{\beta}}\)       & magnetizability \\
+    \(\frac{d^{2}E}{dm_{K_{j}}dB_{\alpha}}\)       & nuclear magnetic shielding tensor; relative NMR shifts \\
+    \(\frac{d^{2}E}{dI_{K_{i}}dI_{L_{j}}}\)        & indirect spin-spin coupling constant \\
+    \(\frac{d^{2}E}{dB_{\alpha}dJ_{\beta}}\)       & rotational \textit{g}-tensor; rotational spectra in magnetic field \\
+    \(\frac{d^{2}E}{dI_{K_{i}}dB_{\alpha}}\)       & nuclear spin-rotation tensor; fine structure in rotational spectra \\
+    \(\frac{d^{2}E}{dS_{i}dB_{\alpha}}\)           & electronic \textit{g}-tensor \\
+    \(\frac{d^{3}E}{dX_{i}dF_{\alpha}dF_{\beta}}\) & polarizability derivative; Raman intensities \\
+    \(\frac{d^{3}E}{dF_{\alpha}d^{2}F_{\beta}}\)   & (first) electric hyperpolarizability \\
+    \(\frac{d^{3}E}{dX_{i}dX_{j}dX_{k}}\)          & cubic force constants; vibrational corrections to distances and rotational constants \\
+    \(\frac{d^{4}E}{dF_{\alpha}dF_{\beta}dF_{\gamma}dF_{\delta}}\) & (second) electric hyperpolarizability \\
+    \(\frac{d^{4}E}{dB_{\alpha}dB_{\beta}dB_{\gamma}dB_{\delta}}\) & (second) hypermagnetizability \\
+    \(\frac{d^{4}E}{dX_{i}dX_{j}dX_{k}dX_{l}}\)                    & quartic force constants; anharmonic corrections to vibrational frequencies \\
+    \(\frac{d^{4}E}{dF_{\alpha}dF_{\beta}dF_{\gamma}dX_{i}}\)      & hyper-Raman effects \\
+    \(\frac{d^{4}E}{dF_{\alpha}dF_{\beta}dX_{i}dX_{j}}\)           & Raman intensities for overtone and combination bands \\
+    \(\frac{d^{4}E}{dF_{\alpha}dF_{\beta}dB_{\gamma}dB_{\delta}}\) & Cotton\textendash{}Mutton effect \\
+    \bottomrule
+  \end{tabulary}
 \end{table}
 
 There is often a direct connection between the macroscopic observables measurable by spectroscopic techniques and the molecular response calculated at the microscopic scale. Tables~\ref{tab:gauss}~and~\ref{tab:norman} give examples of the most common molecular properties of interest and their relationships to energy derivatives and response functions, respectively. Although the effort required for implementing general energy derivatives may be considerable, the entries in both tables are the true starting points for molecular property calculations based on quantum chemical wavefunctions.
@@ -331,22 +324,20 @@ It is also possible to combine numerical and analytic approaches to obtain highe
   \centering
   \caption[Possible analytic and numerical permutations for Raman intensities]{Possible permutations of analytic (a) and numerical (n) differentiation for each perturbation term in calculating Raman intensities. The two cancelled entries are not unique due to permutational symmetry.}
   \label{tab:raman-unique-derivatives}
-  \begin{singlespace}
-    \begin{tabular}{ccc}
-      \toprule
-      \(X_{A}\) & \(F_{i}\) & \(F_{j}\) \\
-      \midrule
-      a & a & a \\
-      a & a & n \\
-      \cancel{a} & \cancel{n} & \cancel{a} \\
-      n & a & a \\
-      a & n & n \\
-      n & a & n \\
-      \cancel{n} & \cancel{n} & \cancel{a} \\
-      n & n & n \\
-      \bottomrule
-    \end{tabular}
-  \end{singlespace}
+  \begin{tabular}{ccc}
+    \toprule
+    \(X_{A}\) & \(F_{i}\) & \(F_{j}\) \\
+    \midrule
+    a & a & a \\
+    a & a & n \\
+    \cancel{a} & \cancel{n} & \cancel{a} \\
+    n & a & a \\
+    a & n & n \\
+    n & a & n \\
+    \cancel{n} & \cancel{n} & \cancel{a} \\
+    n & n & n \\
+    \bottomrule
+  \end{tabular}
 \end{table}
 More explicitly, the first row corresponds to a fully analytic third derivative, the next three rows correspond to first-order finite difference of analytic second derivatives, the next three rows correspond to second-order finite difference of analytic first derivatives, and the last row corresponds to the third-order finite difference of energies. Due to symmetry in the electric field perturbation indices, two of the eight permutations are identical to others already present; for example, a/a/n and a/n/a are functionally identical.
 
@@ -963,6 +954,6 @@ which is in general nonzero for all \(\omega\). Physically, it corresponds to th
 %   \end{pmatrix}
 % \end{equation}
 % More details about the solution of these equations is given in section~\ref{ssec:linear-response-formalism}.
-\onlyifstandalone{\printbibliography}
+\printbibliography
 % Karna JCC:JCC540120409
 \end{document}
