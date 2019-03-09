@@ -51,6 +51,17 @@
 ]{siunitx}
 \DeclareSIUnit\au{a.u.}
 
+\RequirePackage{tikz}
+% Adapted from https://tex.stackexchange.com/a/9448
+% Introduce a new counter for counting the nodes needed for circling
+\newcounter{nodecount}
+% Command for making a new node and naming it according to the nodecount counter
+\newcommand\tabnode[1]{\addtocounter{nodecount}{1}\tikz\node(\arabic{nodecount}){#1};}
+
+% Some options common to all the nodes and paths
+\tikzstyle{every picture}+=[remember picture,baseline]
+\tikzstyle{every node}+=[inner sep=0pt,anchor=base,align=center,outer sep=1.5pt]
+
 \newcommand{\hefe}{Hellmann\textendash{}Feynman}
 \newcommand{\hf}{Hartree\textendash{}Fock}
 \newcommand{\ks}{Kohn\textendash{}Sham}

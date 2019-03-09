@@ -328,15 +328,20 @@ It is also possible to combine numerical and analytic approaches to obtain highe
     \midrule
     a & a & a \\
     a & a & n \\
-    \cancel{a} & \cancel{n} & \cancel{a} \\
+    \tabnode{a} & \tabnode{n} & \tabnode{a} \\
     n & a & a \\
     a & n & n \\
     n & a & n \\
-    \cancel{n} & \cancel{n} & \cancel{a} \\
+    \tabnode{n} & \tabnode{n} & \tabnode{a} \\
     n & n & n \\
     \bottomrule
   \end{tabular}
 \end{table}
+\begin{tikzpicture}[overlay]
+  % Define the lines as paths
+  \draw [->,red,thick] (1.south west) -- (2.center) -- (3.north east);
+  \draw [->,red,thick] (4.south west) -- (5.center) -- (6.north east);
+\end{tikzpicture}
 More explicitly, the first row corresponds to a fully analytic third derivative, the next three rows correspond to first-order finite difference of analytic second derivatives, the next three rows correspond to second-order finite difference of analytic first derivatives, and the last row corresponds to the third-order finite difference of energies. Due to symmetry in the electric field perturbation indices, two of the eight permutations are identical to others already present; for example, a/a/n and a/n/a are functionally identical.
 
 In practice, the fully analytic third derivative is often not implemented, but second derivatives are, leading to two unique possibilities:
