@@ -39,7 +39,7 @@ The term \emph{response} also requires disambiguation. Experimentally, \emph{mol
 
 However, in the context of this work, molecular response is sometimes used interchangeably with \emph{response property}, which is intuitively a property associated with external applied fields, but here refers to any molecular property arising from the solution of the \emph{response equations} or \emph{response functions}.
 
-The response equations relevant for this work are the coupled perturbed \hf{} (CPHF), coupled perturbed \ks{} (CPKS), or coupled perturbed self-consistent field (CPSCF) equations. These terms may be used interchangeably, as the equations are structurally identical, with the only difference being the machinery of how the exchange-like terms are formed. These sets of equations are similar to those from time-dependent HF and KS (TDHF and TDKS/TDDFT) theory. In the TD equations, a non-Hermitian eigenvalue problem is solved for \((\mathbf{G} - \omega\bm{\Delta})\mathbf{U} = \mathbf{0}\), where \(\mathbf{G}\) is the orbital Hessian, the eigenvectors \(\mathbf{U}\) describe the transitions between the states of the system in the given molecular orbital (MO) basis, and the eigenvalues \(\omega\) are the system's excitation energies (poles)\footnote{\(\bm{\Delta}\) is an identity matrix, except the lower diagonal is negated, see \eqref{eq:paper_05-neese-107}.}. In the \hypertarget{text:response-equation-description}{CP equations}, a set of linear equations are solved for \(\mathbf{GU} = -\mathbf{V}\), where \(\mathbf{V}\) represents the perturbation, and \(\mathbf{U}\) describes the modification to the unperturbed state's orbitals caused by the perturbation. A basic implementation of the CPHF equations is given in section~\ref{paper_05:ssec:hyperpolarizability_reference_implementation} using the electric dipole operator as the perturbation. Although the remainder of this work will be concerned with the properties arising from solution of the CP equations and not the TD equations, their combination gives rise to other important molecular properties, namely the residues of the response function (eigenvectors from the TD equation contracted with the operator of interest), describe the perturbation-mediated transitions between states (their moments).
+The response equations relevant for this work are the coupled perturbed \hf{} (CPHF), coupled perturbed \ks{} (CPKS), or coupled perturbed self-consistent field (CPSCF) equations. These terms may be used interchangeably, as the equations are structurally identical, with the only difference being the machinery of how the exchange-like terms are formed. These sets of equations are similar to those from time-dependent HF and KS (TDHF and TDKS/TDDFT) theory. In the TD equations, a non-Hermitian eigenvalue problem is solved for \((\mathbf{G} - \omega\bm{\Delta})\mathbf{U} = \mathbf{0}\), where \(\mathbf{G}\) is the orbital Hessian, the eigenvectors \(\mathbf{U}\) describe the transitions between the states of the system in the given molecular orbital (MO) basis, and the eigenvalues \(\omega\) are the system's excitation energies (poles)\footnote{\(\bm{\Delta}\) is an identity matrix, except the lower diagonal is negated, see~\eqref{eq:paper_05-neese-107}.}. In the \hypertarget{text:response-equation-description}{CP equations}, a set of linear equations are solved for \(\mathbf{GU} = -\mathbf{V}\), where \(\mathbf{V}\) represents the perturbation, and \(\mathbf{U}\) describes the modification to the unperturbed state's orbitals caused by the perturbation. A basic implementation of the CPHF equations is given in section~\ref{paper_05:ssec:hyperpolarizability_reference_implementation} using the electric dipole operator as the perturbation. Although the remainder of this work will be concerned with the properties arising from solution of the CP equations and not the TD equations, their combination gives rise to other important molecular properties, namely the residues of the response function (eigenvectors from the TD equation contracted with the operator of interest), describe the perturbation-mediated transitions between states (their moments).
 
 The solution of the CPSCF equations to calculate the parameters that describe the wavefunction's response to the perturbation \(\hat{V}\) determines the \emph{linear response} of the system. Linear response is named as such not due to the linear form of the equations, but because the perturbation is linear in strength. This strength may be constant, static, or time-independent, or it may be oscillating, dynamic, frequency-, or time-dependent. This work is primarily concerned with static response properties, however an introduction to dynamic response is presented. The most common formulation of these equations is single-particle in nature, with both particle-hole and hole-particle terms, giving the \emph{random phase approximation} (RPA)\cite{Scheffler2012,doi:10.1021/cr0505627}. If not the external perturbation but the response equations themselves are expanded using order analysis, the \hf{} equations give the zeroth-order \emph{polarization propagator}, RPA corresponds to the first-order polarization propagator, and the full two-particle terms are part of the second-order polarization propagator (SOPPA)\cite{ODDERSHEDE198433}.
 
@@ -156,7 +156,7 @@ or in Einstein summation notation where repeated indices are implicitly summed (
   \label{eq:force_hooke_einstein}
   F_{i} = - k_{ij} x_{j},
 \end{equation}
-where both \(i,j\) range from 1 to \(N\), leading to vectors \(\mathbf{F}\) and \(\mathbf{x}\) of shape \([N]\) and a matrix \(\mathbf{k}\) of shape \([N,N]\). From \eqref{eq:force_hooke_matrix}, \eqref{eq:force_hooke_sum}, and \eqref{eq:force_hooke_einstein}, if off-diagonal elements of \(k\) are allowed to be nonzero, there can be coupling between springs. For example, if \(i = 1\), in the case of coupling,
+where both \(i,j\) range from 1 to \(N\), leading to vectors \(\mathbf{F}\) and \(\mathbf{x}\) of shape \([N]\) and a matrix \(\mathbf{k}\) of shape \([N,N]\). From~\eqref{eq:force_hooke_matrix},~\eqref{eq:force_hooke_sum}, and~\eqref{eq:force_hooke_einstein}, if off-diagonal elements of \(k\) are allowed to be nonzero, there can be coupling between springs. For example, if \(i = 1\), in the case of coupling,
 \begin{equation}
   \label{eq:force_hooke_example}
   F_{1} = -(k_{11}x_{1} + k_{12}x_{2} + k_{13}x_{3}),
@@ -166,7 +166,7 @@ which reduces to
   \label{eq:force_hooke_example_nocoupling}
   F_{1} = - k_{11}x_{1}
 \end{equation}
-in the absence of coupling, or the same result obtained in \eqref{eq:hooke_1d}.
+in the absence of coupling, or the same result obtained in~\eqref{eq:hooke_1d}.
 
 The force is also related to the energy. In one dimension,
 \begin{align}
@@ -174,12 +174,12 @@ The force is also related to the energy. In one dimension,
   F &= - \nabla E \\
   &= - \frac{\partial E}{\partial x},
 \end{align}
-where \(\nabla \equiv \partial/\partial x\). In \(N\) dimensions, like \eqref{eq:force_hooke_einstein}, \eqref{eq:energy_derivative_1d} is (using vector calculus)
+where \(\nabla \equiv \partial/\partial x\). In \(N\) dimensions, like~\eqref{eq:force_hooke_einstein},~\eqref{eq:energy_derivative_1d} is (using vector calculus)
 \begin{equation}
   \label{eq:force_partial_derivative}
   F_{i} = - \frac{\partial E}{\partial x_{i}}.
 \end{equation}
-Equating the \(F_{i}\) in \eqref{eq:force_hooke_einstein} and \eqref{eq:force_partial_derivative} gives
+Equating the \(F_{i}\) in~\eqref{eq:force_hooke_einstein} and~\eqref{eq:force_partial_derivative} gives
 \begin{equation}
   \label{eq:equated_force}
   - k_{ij} x_{j} = - \frac{\partial E}{\partial x_{i}},
@@ -207,7 +207,7 @@ A similar derivation holds for the dipole polarizability, \(\alpha\), which is t
   \label{eq:phenomenological-polarizability}
   \vec{\mu} = \vec{\vec{\alpha}} \cdot \vec{F},
 \end{equation}
-which can be expanded identically to \eqref{eq:force_hooke_matrix} as
+which can be expanded identically to~\eqref{eq:force_hooke_matrix} as
 \begin{equation}
   \begin{bmatrix}
     \mu_{1} \\ \mu_{2} \\ \mu_{3}
@@ -239,12 +239,12 @@ which originates from the energy of a neutral dipole in an electric field,
   \label{eq:dipole_energy}
   E = - \mu_{i} F_{i}.
 \end{equation}
-Following \eqref{eq:equated_force}, equating \eqref{eq:polarizability_einstein} and \eqref{eq:dipole_from_derivative} gives
+Following~\eqref{eq:equated_force}, equating~\eqref{eq:polarizability_einstein} and~\eqref{eq:dipole_from_derivative} gives
 \begin{equation}
   \label{eq:equated_polarizability}
   \alpha_{ij} F_{j} = -\frac{\partial E}{\partial F_{i}}
 \end{equation}
-The remaining steps follow identically to \eqref{eq:hooke_derivation_1}, \eqref{eq:hooke_derivation_2}, and \eqref{eq:hooke_derivation_3}:
+The remaining steps follow identically to~\eqref{eq:hooke_derivation_1},~\eqref{eq:hooke_derivation_2}, and~\eqref{eq:hooke_derivation_3}:
 \begin{align}
   \left( \frac{\partial}{\partial F_{j}} \right) \left( \alpha_{ij} F_{j} \right) &= \left( \frac{\partial}{\partial F_{j}} \right) \left( -\frac{\partial E}{\partial F_{i}} \right) \\
   \Ccancelto[carmine]{0}{\left( \frac{\partial \alpha_{ij}}{\partial F_{j}} \right)} F_{j} + \alpha_{ij} \Ccancelto[Green]{1}{\left( \frac{\partial F_{j}}{\partial F_{j}} \right)} &= -\frac{\partial^{2} E}{\partial F_{j} \partial F_{i}} \\
@@ -254,7 +254,7 @@ The remaining steps follow identically to \eqref{eq:hooke_derivation_1}, \eqref{
 
 \subsection{\texorpdfstring{\href{https://chemistry.stackexchange.com/q/74683/194}{\color{black}{Series expansion}}}{Series expansion}\label{ssec:series-expansion}}
 
-More generally, the derivative terms in section~\ref{ssec:phenomenological-approach} originate from series expansions of the energy in the presence of a perturbation; for \eqref{eq:hooke_1d}, it is internal geometric displacements, and in \eqref{eq:phenomenological-polarizability} it is an external electric field. The energy in the presence of an arbitrary perturbation \(P\) is written as
+More generally, the derivative terms in section~\ref{ssec:phenomenological-approach} originate from series expansions of the energy in the presence of a perturbation; for~\eqref{eq:hooke_1d}, it is internal geometric displacements, and in~\eqref{eq:phenomenological-polarizability} it is an external electric field. The energy in the presence of an arbitrary perturbation \(P\) is written as
 \begin{equation}
   \label{eq:taylor-expansion}
   \begin{aligned}
@@ -272,7 +272,7 @@ where \(a\) is the point at which the derivative is taken. Choosing \(a \overset
     &= E^{(0)} + E^{(1)} \cdot P + \frac{1}{2} E^{(2)} \cdot P^{2} + \frac{1}{6} E^{(3)} \cdot P^{3} + \dots
   \end{aligned}
 \end{equation}
-The perturbation \(P\) may have multiple components. For example, there are 3 possible Cartesian components to an external electric field \(\mathbf{F} = (F_{x}, F_{y}, F_{z})\) and \(3N\) atomic coordinates. Generalizing the dimensionality of \(P\) to \(k\) and inserting into \eqref{eq:maclaurin-expansion} gives
+The perturbation \(P\) may have multiple components. For example, there are 3 possible Cartesian components to an external electric field \(\mathbf{F} = (F_{x}, F_{y}, F_{z})\) and \(3N\) atomic coordinates. Generalizing the dimensionality of \(P\) to \(k\) and inserting into~\eqref{eq:maclaurin-expansion} gives
 \begin{equation}
   \label{eq:maclaurin-expansion-vector}
   \begin{aligned}
@@ -284,7 +284,7 @@ The perturbation \(P\) may have multiple components. For example, there are 3 po
   \end{aligned}
 \end{equation}
 
-Considering specific examples, using \eqref{eq:maclaurin-expansion-vector}, replacing \(\mathbf{P}\) with an external electric field \(\mathbf{F}\), and switching to Einstein notation gives
+Considering specific examples, using~\eqref{eq:maclaurin-expansion-vector}, replacing \(\mathbf{P}\) with an external electric field \(\mathbf{F}\), and switching to Einstein notation gives
 \begin{equation}
   \label{eq:electric-field-expansion}
   E(\mathbf{F}) = E_{0} - \mu_{i} \cdot F_{i} - \frac{1}{2} \alpha_{ij} \cdot F_{i}F_{j} - \frac{1}{6} \beta_{ijk} \cdot F_{i}F_{j}F_{k} - \frac{1}{24} \gamma_{ijkl} \cdot F_{i}F_{j}F_{k}F_{l} - \dots,
@@ -296,12 +296,12 @@ where \(\mu_{i}\) is a component of the \href{https://chemistry.stackexchange.co
 \end{equation}
 \(\alpha\) is a component of the polarizability, \(\beta\) is a component of the first hyperpolarizability, \(\gamma\) is a component of the second hyperpolarizability, etc., each describing an additional correction to how a system interacts with the external electric field.
 
-It is also possible to consider multiple perturbations simultaneously. Adding another perturbation \(\mathbf{Q}\) to \eqref{eq:maclaurin-expansion-vector} gives
+It is also possible to consider multiple perturbations simultaneously. Adding another perturbation \(\mathbf{Q}\) to~\eqref{eq:maclaurin-expansion-vector} gives
 \begin{equation}
   \label{eq:two-perturbation-expansion}
   E(\mathbf{P}, \mathbf{Q}) = E^{(0,0)} + \left(E^{(1,0)} \cdot \mathbf{P} + E^{(0,1)} \mathbf{Q}\right) + \frac{1}{2} \left(E^{(2,0)} \cdot \mathbf{P}^{2} + E^{(0,2)} \cdot \mathbf{Q}^{2} + E^{(1,1)} \cdot \mathbf{P} \cdot \mathbf{Q}\right) + \dots,
 \end{equation}
-where \(E^{(n,m)}\) refers to the energy correction that is simultaneously \(n\)th-order in the perturbation \(\mathbf{P}\) and \(m\)th-order in the perturbation \(\mathbf{Q}\). The expected terms from both independent series expansions occur, but there is also a cross-term \(E^{(1,1)}\). All mixed derivatives in Table~\ref{tab:gauss} that are at least 2nd-order total correspond to such cross-terms. For example, consider adding an external magnetic field to \eqref{eq:electric-field-expansion}:
+where \(E^{(n,m)}\) refers to the energy correction that is simultaneously \(n\)th-order in the perturbation \(\mathbf{P}\) and \(m\)th-order in the perturbation \(\mathbf{Q}\). The expected terms from both independent series expansions occur, but there is also a cross-term \(E^{(1,1)}\). All mixed derivatives in Table~\ref{tab:gauss} that are at least 2nd-order total correspond to such cross-terms. For example, consider adding an external magnetic field to~\eqref{eq:electric-field-expansion}:
 \begin{equation}
   \label{eq:electric-and-magnetic-field-expansion}
   E(\mathbf{F}, \mathbf{B}) = E_{0} - \mu_{i} \cdot F_{i} - m_{i} \cdot B_{i} - \frac{1}{2} \left( \alpha_{ij} \cdot F_{i}F_{j} + \xi_{ij} \cdot B_{i}B_{j} + G_{ij} \cdot F_{i}B_{j} \right) - \dots,
@@ -346,7 +346,7 @@ In practice, the fully analytic third derivative is often not implemented, but s
   \label{eq:raman-intensity-from-dipgrad}
   &= \underbrace{\frac{\partial}{\partial F_{i}}}_{\text{numeric}} \underbrace{\left(\frac{\partial^{2} E}{\partial X_{A} \partial F_{j}}\right)}_{\text{analytic}} = \frac{\partial}{\partial F_{i}} \left( \frac{\partial \mu_{j}}{\partial X_{A}} \right).
 \end{align}
-In \eqref{eq:raman-intensity-from-polarizability} there are \(2 \times (3N \,\,\text{atomic coordinates}) = 6N\) atom-displaced polarizability calculations. This is closer to the textbook definition of Raman intensities, which are the change in molecular polarizability along each normal mode coordinate\cite{doi:10.1080/00268978000103541}. In \eqref{eq:raman-intensity-from-dipgrad}, the dipole gradient (needed for IR intensities) is calculated analytically for \(2 \times (3 \,\,\text{field directions}) = 6\) finite electric field calculations.
+In~\eqref{eq:raman-intensity-from-polarizability} there are \(2 \times (3N \,\,\text{atomic coordinates}) = 6N\) atom-displaced polarizability calculations. This is closer to the textbook definition of Raman intensities, which are the change in molecular polarizability along each normal mode coordinate\cite{doi:10.1080/00268978000103541}. In~\eqref{eq:raman-intensity-from-dipgrad}, the dipole gradient (needed for IR intensities) is calculated analytically for \(2 \times (3 \,\,\text{field directions}) = 6\) finite electric field calculations.
 
 \subsection{\texorpdfstring{\href{https://chemistry.stackexchange.com/q/80335/194}{\color{black}{Finite difference for numerical derivatives}}}{Finite difference for numerical derivatives}\label{ssec:finite-difference-for-numerical-derivatives}}
 
@@ -386,7 +386,7 @@ to give
   \alpha_{zz}(h_{z}) = \frac{E(h_{z}) - 2E_{0} - E(h_{z})}{h_{z}^{2}}.
 \end{equation}
 
-As discussed in section~\ref{ssec:decomp-line-resp} and Ref.~\parencite{gauss2000}, there are considerable disadvantages to performing numerical differentiation of the wavefunction. These include the presence of finite-difference error due to step size sensitivity, the inability to handle frequency-dependent perturbations, the inability to handle response to applied magnetic fields without complex energies, and the poor calculation time scaling (especially for geometric derivatives). A particularly insidious example of error related to the step size is given in Figure~\ref{fig:finite-difference-numerical-noise}. Many tests of numerical derivative errors consider relative or absolute accuracy in comparison to the exact analytic result. Figure~\ref{fig:finite-difference-numerical-noise} does not compare the error between the numerical and analytic results, but between matrix elements of the numerical result. In this case, the fundamental structure of the electric field response is violated: asymmetry implies that the polarizability is dependent on the order of which the probing electric fields are applied, and \eqref{eq:youngs-theorem} does not hold, giving an unphysical result.
+As discussed in section~\ref{ssec:decomp-line-resp} and Ref.~\parencite{gauss2000}, there are considerable disadvantages to performing numerical differentiation of the wavefunction. These include the presence of finite-difference error due to step size sensitivity, the inability to handle frequency-dependent perturbations, the inability to handle response to applied magnetic fields without complex energies, and the poor calculation time scaling (especially for geometric derivatives). A particularly insidious example of error related to the step size is given in Figure~\ref{fig:finite-difference-numerical-noise}. Many tests of numerical derivative errors consider relative or absolute accuracy in comparison to the exact analytic result. Figure~\ref{fig:finite-difference-numerical-noise} does not compare the error between the numerical and analytic results, but between matrix elements of the numerical result. In this case, the fundamental structure of the electric field response is violated: asymmetry implies that the polarizability is dependent on the order of which the probing electric fields are applied, and~\eqref{eq:youngs-theorem} does not hold, giving an unphysical result.
 
 \begin{figure}
   \centering
@@ -431,7 +431,7 @@ where the index \(m\) runs over all occupied and unoccupied/virtual MOs. Althoug
 \end{equation}
 where the dimension of \(\mathbf{U}\) is \([N_{\text{orb}}, N_{\text{orb}}]\).
 
-Now consider the derivatives of the MO coefficients/density matrix in the context of the \hf{} equations. Starting from the restricted \hf{} electronic energy expression,\footnote{\label{foot:hf-basics}\(\mu,\nu,\lambda,\sigma,\dots\) are AO indices, \(i,j,k,l,\dots\) are occupied MO indices, and \(p,q,r,s,\dots\) are general MO indices. \(\left(\hat{h} = \hat{H}^{\text{core}} \right) \equiv \hat{T}_{e} + \hat{V}_{Ne}\) is the one-electron core Hamiltonian operator, which itself is the sum of the electronic kinetic energy and electron-nuclear attraction energy operators, here in matrix representation, similar to \eqref{eq:yamaguchi-3.80}. \((pq|rs)\) is an MO-basis two-electron (repulsion) integral in Mulliken notation (see Table 2.2 of Ref.~\parencite{szabo1989modern}).}
+Now consider the derivatives of the MO coefficients/density matrix in the context of the \hf{} equations. Starting from the restricted \hf{} electronic energy expression,\footnote{\label{foot:hf-basics}\(\mu,\nu,\lambda,\sigma,\dots\) are AO indices, \(i,j,k,l,\dots\) are occupied MO indices, and \(p,q,r,s,\dots\) are general MO indices. \(\left(\hat{h} = \hat{H}^{\text{core}} \right) \equiv \hat{T}_{e} + \hat{V}_{Ne}\) is the one-electron core Hamiltonian operator, which itself is the sum of the electronic kinetic energy and electron-nuclear attraction energy operators, here in matrix representation, similar to~\eqref{eq:yamaguchi-3.80}. \((pq|rs)\) is an MO-basis two-electron (repulsion) integral in Mulliken notation (see Table 2.2 of Ref.~\parencite{szabo1989modern}).}
 \begin{equation}
   \label{eq:yamaguchi-4.1}\tag{Yamaguchi eq. 4.1}
   E_{\text{elec}}^{\text{RHF}} = 2 \sum_{i}^{\text{d.o.}} h_{ii} + \sum_{ij}^{\text{d.o.}} \left\{ 2(ii|jj) - (ij|ij) \right\},
@@ -704,12 +704,12 @@ Plugging \eqref{eq:something-something-expansion} back into \eqref{eq:first-orde
   \label{eq:szabo-ostlund-6.11nl}
   \braket{k|\psi_{i}^{(1)}} &= \frac{\braket{k|\hat{V}|\psi_{i}^{(0)}}}{E_{i}^{(0)} - E_{k}^{(0)}},
 \end{align}
-which upon inserting into \eqref{eq:resolution-of-the-identity}, gives the final form of the first-order correction to the perturbed wavefunction:
+which upon inserting into~\eqref{eq:resolution-of-the-identity}, gives the final form of the first-order correction to the perturbed wavefunction:
 \begin{equation}
   \label{eq:first-order-wavefunction}
   \ket{\psi_{i}^{(1)}} = \sum_{k\neq i} \ket{k} \frac{\braket{k|\hat{V}|\psi_{i}^{(0)}}}{E_{i}^{(0)} - E_{k}^{(0)}}.
 \end{equation}
-Inserting \eqref{eq:first-order-wavefunction} into \eqref{eq:second-order-correction-first-form} then gives the second-order correction to the perturbed energy:
+Inserting~\eqref{eq:first-order-wavefunction} into~\eqref{eq:second-order-correction-first-form} then gives the second-order correction to the perturbed energy:
 \begin{equation}
   \label{eq:second-order-energy}
   \begin{aligned}
@@ -717,7 +717,7 @@ Inserting \eqref{eq:first-order-wavefunction} into \eqref{eq:second-order-correc
     &= \sum_{k \neq i} \frac{\braket{\psi_{i}^{(0)}|\hat{V}|k}\braket{k|\hat{V}|\psi_{i}^{(0)}}}{E_{i}^{(0)} - E_{k}^{(0)}}.
   \end{aligned}
 \end{equation}
-In the case where \(\hat{V}\) is operator with multiple components, such as the dipole operator in \eqref{eq:dipole-operator}, the energy becomes a rank-2 tensor, the polarizability matrix:
+In the case where \(\hat{V}\) is an operator with multiple components, such as the dipole operator in~\eqref{eq:dipole-operator}, the energy becomes a rank-2 tensor, the polarizability matrix:
 \begin{equation}
   \label{eq:static-polarizability-from-perturbation-theory}
   \alpha_{ab}= - \sum_{k \neq i} \frac{\braket{\psi_{i}^{(0)}|\hat{\mu}_{a}|k}\braket{k|\hat{\mu}_{b}|\psi_{i}^{(0)}}}{E_{i}^{(0)} - E_{k}^{(0)}}.
@@ -737,12 +737,12 @@ The starting point is the now the time-dependent \schrod{} equation (TDSE),
   \label{eq:tdse}
   \hat{H}(t) \ket{\Psi(t)} = i\frac{\partial}{\partial t} \ket{\Psi(t)},
 \end{equation}
-which, unlike \eqref{eq:schrodinger-equation} does not have the energy on the right-hand side. It is useful to factor out the time-dependent phase of the wavefunction,
+which, unlike~\eqref{eq:schrodinger-equation} does not have the energy on the right-hand side. It is useful to factor out the time-dependent phase of the wavefunction,
 \begin{equation}
   \label{eq:phase-isolated-wavefunction} \tag{Toulouse eq. 48}
   \ket{\Psi(t)} = e^{-i\mathcal{F}(t)} \ket{\tilde{\Psi}(t)},
 \end{equation}
-where \(\Psi(t)\) is the original unfactored wavefunction, \(\mathcal{F}(t)\) is a phase factor, and \(\tilde{\Psi}(t)\) is the \emph{phase-isolated wavefunction}.\footnote{This notation is consistent with Ref.~\parencite{gauss2000}. In Ref.~\parencite{Toulouse2015}, \(\bar{\Psi}(t)\) is the total wavefunction and \(\Psi(t)\) is the phase-isolated wavefunction. In Ref.~\parencite{Christiansen1998}, \(\ket{\bar{0}}\) is the total wavefunction, \(\ket{\tilde{0}}\) is the phase-isolated wavefunction, and \(\ket{0}\) is the stationary wavefunction, recovered from \(\ket{\tilde{0}(t \rightarrow 0)}\).} Rearrange the TDSE \eqref{eq:tdse},
+where \(\Psi(t)\) is the original unfactored wavefunction, \(\mathcal{F}(t)\) is a phase factor, and \(\tilde{\Psi}(t)\) is the \emph{phase-isolated wavefunction}.\footnote{This notation is consistent with Ref.~\parencite{gauss2000}. In Ref.~\parencite{Toulouse2015}, \(\bar{\Psi}(t)\) is the total wavefunction and \(\Psi(t)\) is the phase-isolated wavefunction. In Ref.~\parencite{Christiansen1998}, \(\ket{\bar{0}}\) is the total wavefunction, \(\ket{\tilde{0}}\) is the phase-isolated wavefunction, and \(\ket{0}\) is the stationary wavefunction, recovered from \(\ket{\tilde{0}(t \rightarrow 0)}\).} Rearrange the TDSE~\eqref{eq:tdse},
 \begin{equation}
   \label{eq:tdse-rearranged} \tag{Toulouse eq. 47}
   \left[ \hat{H}(t) - i\frac{\partial}{\partial t} \right] \ket{\Psi(t)} = 0,
@@ -754,7 +754,7 @@ and use the phase-isolated wavefunction\footnote{\(\dot{A}(t) = \mathrm{d}A(t)/\
 \end{equation}
 where \(\dot{\mathcal{F}}(t)\) now resembles the energy from the time-independent \schrod{} equation (TISE). This ``energy'' is still not stationary with time, however it will reappear later as part of a stationary theory.
 
-Before going further, the Hamiltonian must be specified. The partitioning introduced in \eqref{eq:perturbed-hamiltonian} is modified:
+Before going further, the Hamiltonian must be specified. The partitioning introduced in~\eqref{eq:perturbed-hamiltonian} is modified:
 \begin{equation}
   \label{eq:perturbed-hamiltonian-time-dependent}
   \hat{H}(t) = \hat{H}^{(0)} + \hat{V}(t),
@@ -764,12 +764,12 @@ so that time-dependence is introduced only to the perturbation and not the stand
   \label{eq:fourier-components} \tag{Toulouse eq. 46 [modified]}
   \hat{V}(t) = x_{1} \hat{B} e^{-i\omega t} + x_{2} \hat{A} e^{+i\omega t},
 \end{equation} %TODO I am really not satisfied with this
-shows that the perturbation, and therefore the Hamiltonian, is periodic in time (\(\hat{H}(t + T) = \hat{H}(t)\)) with a period of \(T = 2\pi/\omega\). Other perturbation shapes, such as step functions, can be represented using a more general form of \eqref{eq:fourier-components} with more Fourier components:
+shows that the perturbation, and therefore the Hamiltonian, is periodic in time (\(\hat{H}(t + T) = \hat{H}(t)\)) with a period of \(T = 2\pi/\omega\). Other perturbation shapes, such as step functions, can be represented using a more general form of~\eqref{eq:fourier-components} with more Fourier components:
 \begin{equation}
   \label{eq:general-fourier-components-gauss-106}\tag{Gauss eq. 106}
   \hat{V}(t) = \sum_{k=-N}^{N} e^{-i\omega_{k}t} \sum_{X} \epsilon_{X}(\omega_{k})\hat{X},
 \end{equation}
-where \(k\) is the Fourier component index, \(\omega_{k}\) are the frequencies, and \(\epsilon_{X}(\omega_{k})\) and \(\hat{X}\) are the corresponding perturbation strengths and operators. This gives the required integration bounds for \eqref{eq:phase-isolated-tdse}, leading to
+where \(k\) is the Fourier component index, \(\omega_{k}\) are the frequencies, and \(\epsilon_{X}(\omega_{k})\) and \(\hat{X}\) are the corresponding perturbation strengths and operators. This gives the required integration bounds for~\eqref{eq:phase-isolated-tdse}, leading to
 \begin{equation}
   \label{eq:quasienergy} \tag{Toulouse eq. 50}
   \begin{aligned}
@@ -777,16 +777,16 @@ where \(k\) is the Fourier component index, \(\omega_{k}\) are the frequencies, 
     &= \frac{1}{T} \int_{0}^{T} \mathrm{d}t \, \frac{\bra{\tilde{\Psi}(t)} \left[ \hat{H}(t) - i\frac{\partial}{\partial t} \right] \ket{\tilde{\Psi}(t)}}{\braket{\tilde{\Psi}(t)|\tilde{\Psi}(t)}},
   \end{aligned}
 \end{equation}
-where \(\mathcal{Q}\) is the \emph{time-averaged quasienergy}. The second part of \eqref{eq:quasienergy} is the variational condition for \(\tilde{\Psi}(t)\), making \(\mathcal{Q}\) stationary with respect to fluctuations in \(\tilde{\Psi}(t)\). In the time-independent case, the quasienergy reduces to the (time-independent) energy, and the phase-isolated wavefunction reduces to the (time-independent) wavefunction.
+where \(\mathcal{Q}\) is the \emph{time-averaged quasienergy}. The second part of~\eqref{eq:quasienergy} is the variational condition for \(\tilde{\Psi}(t)\), making \(\mathcal{Q}\) stationary with respect to fluctuations in \(\tilde{\Psi}(t)\). In the time-independent case, the quasienergy reduces to the (time-independent) energy, and the phase-isolated wavefunction reduces to the (time-independent) wavefunction.
 
 The time-averaged quasienergy can now be expanded with respect to the perturbation parameters,
 \begin{equation}
   \label{eq:quasienergy-expansion} \tag{Toulouse eq. 51}
   \mathcal{Q}(x_{1},x_{2}) = \mathcal{Q}^{(0)} + \mathcal{Q}^{(10)}x_{1} + \mathcal{Q}^{(01)}x_{2} + \frac{1}{2}\mathcal{Q}^{(20)}x_{1}^{2} + \mathcal{Q}^{(11)}x_{1}x_{2} + \frac{1}{2}\mathcal{Q}^{(02)}x_{2}^{2} + \dots,
 \end{equation}
-analogous to the series expansion in Section~\ref{ssec:series-expansion}. However, the expansion coefficients \(\partial^{n}\mathcal{Q}/\partial x^{n}\) are still not in a position to be directly calculable for an approximate theory due to the presence of the integral in \eqref{eq:quasienergy}, unlike in the static case, so the time-dependent theory must be further derived for exact states.
+analogous to the series expansion in Section~\ref{ssec:series-expansion}. However, the expansion coefficients \(\partial^{n}\mathcal{Q}/\partial x^{n}\) are still not in a position to be directly calculable for an approximate theory due to the presence of the integral in~\eqref{eq:quasienergy}, unlike in the static case, so the time-dependent theory must be further derived for exact states.
 
-Using the time-dependent form of \eqref{eq:first-order-terms-final},
+Using the time-dependent form of~\eqref{eq:first-order-terms-final},
 \begin{equation}
   \label{eq:quasienergy-10} \tag{Toulouse eq. 53}
   \begin{aligned}
@@ -794,7 +794,7 @@ Using the time-dependent form of \eqref{eq:first-order-terms-final},
     &= \braket{\tilde{\Psi}_{0}|\hat{B}|\tilde{\Psi}_{0}} \delta[\omega].
 \end{aligned}
 \end{equation}
-The rule used in \eqref{eq:quasienergy-10} is
+The rule used in~\eqref{eq:quasienergy-10} is
 \begin{equation}
   \label{eq:kronecker-delta-frequencies}
   \frac{1}{T} \int_{0}^{T} \mathrm{d}t \, e^{-i\omega t} = \delta[\omega] =
@@ -803,27 +803,27 @@ The rule used in \eqref{eq:quasienergy-10} is
     \delta(\omega) & T \rightarrow \infty
   \end{cases},
 \end{equation}
-where we define \(\delta[\omega]\) as the Kronecker delta for finite \(T\) and the Dirac delta for \(T \rightarrow \infty\). More explicitly, \(\delta[\omega = 0] = (1/T) \int_{0}^{T} \mathrm{d}t \, e^{0} = 1\). \(\delta[\omega \neq 0]\) would lead a non-zero value for exponential inside \eqref{eq:kronecker-delta-frequencies}, which when expanded as sines and cosines, gives rise to terms that are not physically admissible as Fourier components. The conclusion is that only static first-order properties are non-zero, where the physical intuition is that absorption or emission of a photon with \(\omega \neq 0\) would violate energy conservation. Using \eqref{eq:second-order-correction-first-form} and \eqref{eq:intermediate-normalization},
+where we define \(\delta[\omega]\) as the Kronecker delta for finite \(T\) and the Dirac delta for \(T \rightarrow \infty\). More explicitly, \(\delta[\omega = 0] = (1/T) \int_{0}^{T} \mathrm{d}t \, e^{0} = 1\). \(\delta[\omega \neq 0]\) would lead a non-zero value for exponential inside~\eqref{eq:kronecker-delta-frequencies}, which when expanded as sines and cosines, gives rise to terms that are not physically admissible as Fourier components. The conclusion is that only static first-order properties are non-zero, where the physical intuition is that absorption or emission of a photon with \(\omega \neq 0\) would violate energy conservation. Using~\eqref{eq:second-order-correction-first-form} and~\eqref{eq:intermediate-normalization},
 \begin{equation}
   \label{eq:quasienergy-20} \tag{Toulouse eq. 54}
   \mathcal{Q}^{(20)} = \frac{1}{T} \int_{0}^{T} \mathrm{d}t \, 2\braket{\tilde{\Psi}_{0}|\hat{B}e^{-i\omega t}|\tilde{\Psi}^{(10)}(t)},
 \end{equation}
-where the first-order wavefunction correction is (similar to \eqref{eq:orthonormal-eigenfunction-expansion})
+where the first-order wavefunction correction is (similar to~\eqref{eq:orthonormal-eigenfunction-expansion})
 \begin{equation}
   \label{eq:first-order-wavefunction-td} \tag{Toulouse eq. 55}
   \ket{\tilde{\Psi}^{(10)}(t)} = \sum_{n\neq 0} c_{n}^{(10)}(t) e^{-i\omega_{n0}t} \ket{\tilde{\Psi}_{n}},
 \end{equation}
-where \(\omega_{n0} = E_{n} - E_{0}\) are the unperturbed system excitation energies. The first-order wavefunction expansion coefficients are found similarly to \eqref{eq:coefficient-selection},
+where \(\omega_{n0} = E_{n} - E_{0}\) are the unperturbed system excitation energies. The first-order wavefunction expansion coefficients are found similarly to~\eqref{eq:coefficient-selection},
 \begin{equation}
   \label{eq:56} \tag{Toulouse eq. 56}
   c_{n}^{(10)}(t) = -i \int_{-\infty}^{t} \mathrm{d}t' \, \braket{\tilde{\Psi}_{n}|\hat{B}e^{-i\omega t'}e^{\gamma t'}|\tilde{\Psi}_{0}}e^{i\omega_{n0}t'},
 \end{equation}
-where a factor of \(e^{\gamma t}\) with \(\gamma \rightarrow 0^{+}\) adiabatically switches on the perturbation from \(t' \rightarrow -\infty\) and imposes the initial condition \(c_{n}^{(10)}(t \rightarrow -\infty) = 0\). Performing the integration in \eqref{eq:56} gives
+where a factor of \(e^{\gamma t}\) with \(\gamma \rightarrow 0^{+}\) adiabatically switches on the perturbation from \(t' \rightarrow -\infty\) and imposes the initial condition \(c_{n}^{(10)}(t \rightarrow -\infty) = 0\). Performing the integration in~\eqref{eq:56} gives
 \begin{equation}
   \label{eq:57} \tag{Toulouse eq. 57}
   c_{n}^{(10)}(t) = \frac{\braket{\tilde{\Psi}_{n}|\hat{B}e^{-i\omega t}|\tilde{\Psi}_{0}}e^{i\omega_{n0}t}}{\omega - \omega_{n0} + i\gamma},
 \end{equation} % TODO why is it dropped from the numerator
-where the factor \(e^{\gamma t}\) is dropped from the numerator, but now supplies a damping factor for when the field oscillation comes close to a resonance (excitation energy). Now \eqref{eq:quasienergy-20}, \eqref{eq:first-order-wavefunction-td}, and \eqref{eq:57} are combined to give
+where the factor \(e^{\gamma t}\) is dropped from the numerator, but now supplies a damping factor for when the field oscillation comes close to a resonance (excitation energy). Now~\eqref{eq:quasienergy-20},~\eqref{eq:first-order-wavefunction-td}, and~\eqref{eq:57} are combined to give
 \begin{equation}
   \label{eq:58} \tag{Toulouse eq. 58}
   \begin{aligned}
@@ -831,7 +831,7 @@ where the factor \(e^{\gamma t}\) is dropped from the numerator, but now supplie
     &= 2\sum_{n\neq 0} \frac{\braket{\tilde{\Psi}_{0}|\hat{B}|\tilde{\Psi}_{n}}\braket{\tilde{\Psi}_{n}|\hat{B}|\tilde{\Psi}_{0}}}{\omega - \omega_{n0} + i\gamma} \delta[2\omega],
   \end{aligned}
 \end{equation}
-which is only finite for \(\omega = 0\) similarly to \eqref{eq:quasienergy-10}. Performing the same steps for the mixed term,
+which is only finite for \(\omega = 0\) similarly to~\eqref{eq:quasienergy-10}. Performing the same steps for the mixed term,
 \begin{equation}
   \label{eq:59} \tag{Toulouse eq. 59}
   \begin{aligned}
@@ -840,7 +840,7 @@ which is only finite for \(\omega = 0\) similarly to \eqref{eq:quasienergy-10}. 
     = &\sum_{n\neq 0} \frac{\braket{\tilde{\Psi}_{0}|\hat{A}|\tilde{\Psi}_{n}}\braket{\tilde{\Psi}_{n}|\hat{B}|\tilde{\Psi}_{0}}}{\omega - \omega_{n0} + i\gamma} - \sum_{n\neq 0} \frac{\braket{\tilde{\Psi}_{0}|\hat{B}|\tilde{\Psi}_{n}}\braket{\tilde{\Psi}_{n}|\hat{A}|\tilde{\Psi}_{0}}}{\omega + \omega_{n0} - i\gamma},
   \end{aligned}
 \end{equation}
-which is in general nonzero for all \(\omega\). Physically, it corresponds to the absorption of a virtual photon due to \(\hat{B}\) that probes the excited states of the system, followed by emission of a photon due to \(\hat{A}\), which is allowed due to net energy conservation. \(\mathcal{Q}^{(11)}\) is the \emph{linear response function} of operators \(\hat{A}\) and \(\hat{B}\) in the spectral representation and it is often denoted as \(\mathcal{Q}^{(11)} = \braket{\braket{\hat{A};\hat{B}}}_{\omega}\) (see Table~\ref{tab:norman}). Physically, it can be viewed as the change in the expectation value of the operator \(\hat{A}\) due to the perturbation \(\hat{B}e^{-i\omega t}\). Due to the pole structure introduced by the denominator (with de-excitation energies arising from the second term), \eqref{eq:59} contains information about all the excitation energies of the system. Higher-order derivatives of the quasienergy lead to time-dependent non-linear response functions: third derivatives correspond to quadratic response, and fourth derivatives correspond to cubic response, and so on.
+which is in general nonzero for all \(\omega\). Physically, it corresponds to the absorption of a virtual photon due to \(\hat{B}\) that probes the excited states of the system, followed by emission of a photon due to \(\hat{A}\), which is allowed due to net energy conservation. \(\mathcal{Q}^{(11)}\) is the \emph{linear response function} of operators \(\hat{A}\) and \(\hat{B}\) in the spectral representation and it is often denoted as \(\mathcal{Q}^{(11)} = \braket{\braket{\hat{A};\hat{B}}}_{\omega}\) (see Table~\ref{tab:norman}). Physically, it can be viewed as the change in the expectation value of the operator \(\hat{A}\) due to the perturbation \(\hat{B}e^{-i\omega t}\). Due to the pole structure introduced by the denominator (with de-excitation energies arising from the second term),~\eqref{eq:59} contains information about all the excitation energies of the system. Higher-order derivatives of the quasienergy lead to time-dependent non-linear response functions: third derivatives correspond to quadratic response, and fourth derivatives correspond to cubic response, and so on.
 
 % \subsection{Polarization propagator}
 % \label{ssec:polarization-propagator}
