@@ -4,7 +4,6 @@
 \usepackage{bibstuff}
 \addbibresource{./bibliography.bib}
 \usepackage{packages}
-\raggedbottom
 
 \title{An Introduction to Molecular Response Properties}
 \author{Eric Berquist}
@@ -18,8 +17,7 @@
   \listoffigures%
 }
 
-\chapter{Introduction and Theoretical Background}
-\label{ch:introduction}
+\chapter{Introduction and Theoretical Background\label{ch:introduction}}
 
 A great strength of quantum chemistry is that it enables construction of molecular models using the building blocks of chemical intuition, such as interactions between functional groups, that can in theory be correlated with any information present in the wavefunction. Furthermore, the ability to calculate spectroscopic parameters from wavefunctions makes it possible to connect the features of a molecular model with molecular properties. This is of paramount importance to experimental spectroscopy, where there is not always an obvious ``signature'' that connects features in complex molecular systems to a distinct spectroscopic response. As a result, it is often not possible to draw conclusions from experimental results without the aid of quantum chemical calculations.
 
@@ -33,8 +31,7 @@ The remainder of this introduction will cover the basic language of molecular re
 
 For more background literature on the theoretical development and applications of response theory to molecular properties, see reviews by Gauss\cite{gauss2000}, Neese\cite{NEESE2009526}, Norman\cite{C1CP21951K}, Helgaker\cite{doi:10.1021/cr2002239} and books by \szabo{}\cite{szabo1989modern}, McWeeny\cite{mcweeny1989methods}, Yamaguchi\cite{Yamaguchi1994}, and Barron\cite{barron2004molecular}.
 
-\section{Terms and Fundamental Definitions}
-\label{sec:terms-and-fundamental-definitions}
+\section{Terms and Fundamental Definitions\label{sec:terms-and-fundamental-definitions}}
 
 Throughout the introduction and the remainder of this work, a number of terms appear and may seem to be used interchangeably. In quantum chemistry literature, the phrase \emph{molecular property} is used to denote any quantity that can be calculated from the wavefunction. By this definition, not all molecular properties are \emph{observables}, as they do not necessarily correspond to experimentally-measurable quantities. Such molecular properties may not also be uniquely defined. One of the most prominent examples of non-observable molecular properties is the calculation of atomic partial charges, with Mulliken\cite{Mulliken1955,szabo1989modern} and L{\"{o}}wdin\cite{Lowdin1950} population analyses being the two most commonly-known partitioning schemes for dividing the electron density into atomic contributions. However, this work associates molecular properties with observables, which may also be synonymous with \emph{physical properties}. The term \emph{chemical property} is avoided as it is more closely associated with reactivity than observable quantities.
 
@@ -46,8 +43,7 @@ The response equations relevant for this work are the coupled perturbed \hf{} (C
 
 The solution of the CPSCF equations to calculate the parameters that describe the wavefunction's response to the perturbation \(\hat{V}\) determines the \emph{linear response} of the system. Linear response is named as such not due to the linear form of the equations, but because the perturbation is linear in strength. This strength may be constant, static, or time-independent, or it may be oscillating, dynamic, frequency-, or time-dependent. This work is primarily concerned with static response properties, however an introduction to dynamic response is presented. The most common formulation of these equations is single-particle in nature, with both particle-hole and hole-particle terms, giving the \emph{random phase approximation} (RPA)\cite{Scheffler2012,doi:10.1021/cr0505627}. If not the external perturbation but the response equations themselves are expanded using order analysis, the \hf{} equations give the zeroth-order \emph{polarization propagator}, RPA corresponds to the first-order polarization propagator, and the full two-particle terms are part of the second-order polarization propagator (SOPPA)\cite{ODDERSHEDE198433}.
 
-\section[Macroscopic and Microscopic Response Connections]{Connection Between Macroscopic and Microscopic Properties}
-\label{sec:connection-between-macroscopic-and-microscopic}
+\section[Macroscopic and Microscopic Response Connections]{Connection Between Macroscopic and Microscopic Properties\label{sec:connection-between-macroscopic-and-microscopic}}
 
 \begin{table}
   \centering
@@ -116,8 +112,7 @@ There is often a direct connection between the macroscopic observables measurabl
   \end{tabular}
 \end{table}
 
-\section{Static (time-independent) response properties}
-\label{sec:static-properties}
+\section{Static (time-independent) response properties\label{sec:static-properties}}
 
 The two primary ways to perform the derivation are
 \begin{enumerate}
@@ -126,8 +121,7 @@ The two primary ways to perform the derivation are
 \end{enumerate}
 It is also possible to obtain expressions for static properties by the reduction of any expressions for dynamic properties to the static limit (zero frequency: \(\omega = 0\)). The purpose of this section is to avoid some complexity in the derivation of time-dependent response by understanding the simpler case of static response first.
 
-\subsection{Phenomenological approach}
-\label{ssec:phenomenological-approach}
+\subsection{Phenomenological approach\label{ssec:phenomenological-approach}}
 
 For a one-dimensional spring connecting a ball to a fixed object, Hooke's law is
 \begin{equation}
@@ -258,8 +252,7 @@ The remaining steps follow identically to \eqref{eq:hooke_derivation_1}, \eqref{
   \alpha_{ij} &= -\frac{\partial^{2} E}{\partial F_{j} \partial F_{i}}
 \end{align}
 
-\subsection{\texorpdfstring{\href{https://chemistry.stackexchange.com/q/74683/194}{\color{black}{Series expansion}}}{Series expansion}}
-\label{ssec:series-expansion}
+\subsection{\texorpdfstring{\href{https://chemistry.stackexchange.com/q/74683/194}{\color{black}{Series expansion}}}{Series expansion}\label{ssec:series-expansion}}
 
 More generally, the derivative terms in section~\ref{ssec:phenomenological-approach} originate from series expansions of the energy in the presence of a perturbation; for \eqref{eq:hooke_1d}, it is internal geometric displacements, and in \eqref{eq:phenomenological-polarizability} it is an external electric field. The energy in the presence of an arbitrary perturbation \(P\) is written as
 \begin{equation}
@@ -318,8 +311,7 @@ where the magnetic field has introduced \(m_{i}\) as a component of the magnetic
 % \begin{equation}
 %   \mu_{j}^{(1)}(\omega) = \sum_{k} \alpha_{jk}(\omega) E_{k}(\omega) + \frac{i\omega}{c} \sum_{k} G_{jk}(\omega) B_{k}(\omega) + \sum_{kl} P_{jkl}(\omega) \frac{\partial E_{k}(\omega)}{\partial l} + O\left(\frac{1}{\lambda^{2}}\right)
 % \end{equation}
-\subsection{Derivative evaluation}
-\label{ssec:derivative-evaluation}
+\subsection{Derivative evaluation\label{ssec:derivative-evaluation}}
 
 Up to this point, it has not been necessary to specify which energy expression is being differentiated: it is the energy expression for the chosen method (HF, \(\omega\)B97M-V, MP2, CCSD(T), \dots). These derivatives may be evaluated in one of two ways:
 \begin{enumerate}
@@ -329,8 +321,7 @@ Up to this point, it has not been necessary to specify which energy expression i
 It is also possible to combine numerical and analytic approaches to obtain higher-order derivatives. For example, in the calculation of Raman intensities, defined as \(\frac{\partial^{3} E}{\partial X_{A} \partial F_{i} \partial F_{j}}\), there are six unique ways to perform the derivative, shown in Table~\ref{tab:raman-unique-derivatives}.
 \begin{table}[htbp]
   \centering
-  \caption[Possible analytic and numerical permutations for Raman intensities]{Possible permutations of analytic (a) and numerical (n) differentiation for each perturbation term in calculating Raman intensities. The two cancelled entries are not unique due to permutational symmetry.}
-  \label{tab:raman-unique-derivatives}
+  \caption[Possible analytic and numerical permutations for Raman intensities]{Possible permutations of analytic (a) and numerical (n) differentiation for each perturbation term in calculating Raman intensities. The two cancelled entries are not unique due to permutational symmetry.\label{tab:raman-unique-derivatives}}
   \begin{tabular}{ccc}
     \toprule
     \(X_{A}\) & \(F_{i}\) & \(F_{j}\) \\
@@ -357,8 +348,7 @@ In practice, the fully analytic third derivative is often not implemented, but s
 \end{align}
 In \eqref{eq:raman-intensity-from-polarizability} there are \(2 \times (3N \,\,\text{atomic coordinates}) = 6N\) atom-displaced polarizability calculations. This is closer to the textbook definition of Raman intensities, which are the change in molecular polarizability along each normal mode coordinate\cite{doi:10.1080/00268978000103541}. In \eqref{eq:raman-intensity-from-dipgrad}, the dipole gradient (needed for IR intensities) is calculated analytically for \(2 \times (3 \,\,\text{field directions}) = 6\) finite electric field calculations.
 
-\subsection{\texorpdfstring{\href{https://chemistry.stackexchange.com/q/80335/194}{\color{black}{Finite difference for numerical derivatives}}}{Finite difference for numerical derivatives}}
-\label{ssec:finite-difference-for-numerical-derivatives}
+\subsection{\texorpdfstring{\href{https://chemistry.stackexchange.com/q/80335/194}{\color{black}{Finite difference for numerical derivatives}}}{Finite difference for numerical derivatives}\label{ssec:finite-difference-for-numerical-derivatives}}
 
 To perform numerical differentiation for molecular properties, first consider the definition of a (first) derivative,
 \begin{equation}
@@ -404,8 +394,7 @@ As discussed in section~\ref{ssec:decomp-line-resp} and Ref.~\parencite{gauss200
   \caption[Asymmetry in the 1st-order finite-difference polarizability]{Effect of numerical noise on the off-diagonal matrix elements of the polarizability tensor. Nonzero differences indicate asymmetry, and the polarizability tensor is supposed to be symmetric. The red bar indicates the default step size for the applied electric field in \qchem{} 5.1, set at \SI{1.88973E-05}{\au}.\label{fig:finite-difference-numerical-noise}}
 \end{figure}
 
-\subsection{\texorpdfstring{\href{https://chemistry.stackexchange.com/q/89831/194}{\color{black}{Analytic derivative theory}}}{Analytic derivative theory}}
-\label{ssec:analytic-derivative-theory}
+\subsection{\texorpdfstring{\href{https://chemistry.stackexchange.com/q/89831/194}{\color{black}{Analytic derivative theory}}}{Analytic derivative theory}\label{ssec:analytic-derivative-theory}}
 
 As mentioned in section~\ref{ssec:derivative-evaluation}, the first requirement for evaluating analytic energy derivatives is to form the necessary mathematical expression. In the most general case, there are both derivatives of the atomic orbital (AO) basis integrals themselves and of the density matrix, which leads to derivatives of the MO coefficients. To illustrate some of the mechanics of differentiation, consider the derivative of the MO-basis matrix representation of the electron-nuclear attraction operator \(\hat{V}_{eN}\) with respect to a nuclear coordinate \(X_{A}\), which is a term needed for the molecular gradient:
 \begin{align}
@@ -566,8 +555,7 @@ and \eqref{eq:mo-coefficient-derivatives}.
 
 The form of \eqref{eq:yamaguchi-17.54} and \eqref{eq:neese-77} as shown above should make it clear that for a second derivative of an HF wavefunction, only one set of \(\mathbf{U}\) matrices is needed. This leads to a potential computational savings. Considering the IR intensities \(\frac{d^{2}E}{dX_{A}dF_{\alpha}}\), calculating \(\frac{d}{d X_{A}} \left(\mu_{\alpha}\right)\) would require \(3N\) \(\mathbf{U}\) matrices (one for each nuclear displacement), but using \eqref{eq:youngs-theorem} to calculate \(\frac{d}{d F_{\alpha}} \left(\frac{d E}{d X_{A}}\right)\) would only require \(3\) \(\mathbf{U}\) matrices (one for each external field component).
 
-\subsection{Perturbation theory}
-\label{ssec:perturbation-theory}
+\subsection{Perturbation theory\label{ssec:perturbation-theory}}
 
 In Rayleigh\textendash{}\schrod{} perturbation theory\footnote{See \szabo{}\cite{szabo1989modern} page 322; identical notation is followed throughout, except the summation index \(n\) is generally replaced with \(k\).}, the exact Hamiltonian \(\hat{H}\) of a system under an applied perturbation \(\hat{V}\) can be written as
 \begin{equation}
@@ -736,8 +724,7 @@ In the case where \(\hat{V}\) is operator with multiple components, such as the 
 \end{equation} % \fxnote{TODO This expression is still incomplete regarding time-varying perturbations and mixed-operator properties.}
 \eqref{eq:static-polarizability-from-perturbation-theory} is called a \emph{sum-over-states} expansion due to the explicit summation over the set of excited states \(\ket{\psi_{k}^{(0)}}\). Although the derivation assumes that all states are exact and the summation is infinite, the actual states are formed from the basis of excited Slater determinants using the converged SCF wavefunction as the reference state \(\ket{\psi_{i}^{(0)}}\).
 
-\section{Dynamic (frequency-dependent) response properties}
-\label{sec:dynamic-properties}
+\section{Dynamic (frequency-dependent) response properties\label{sec:dynamic-properties}}
 
 Up to this point, only static perturbations have been considered, where the strength of an applied field does not oscillate or vary with time. This is perfectly satisfactory for many properties, such as those that are intrinsic to the system or do not depend on field strength. For example, it does not make sense to have a field strength directly associated with a change in nuclear positions; this is not the same thing as having nuclear positions change in the presence of an applied field. Similarly, from Table~\ref{tab:gauss}, rotational and nuclear magnetic moments do not have a strength associated with them. This holds generally for ``internal'' perturbations. However, many non-linear optical processes in particular take advantage of oscillating fields, so frequency- or time-dependent molecular response properties must be calculable.
 
